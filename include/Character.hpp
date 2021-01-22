@@ -18,4 +18,4 @@ class Character : public Entity
         int _lastShot;
 };
 
-#endif
+#endif // __BULLET_HPP__

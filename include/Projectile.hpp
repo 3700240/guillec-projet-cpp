@@ -17,4 +17,4 @@ class Projectile : public Entity
         int _damage;
 };
 
-#endif
+#endif // __BULLET_HPP__
