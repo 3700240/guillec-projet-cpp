@@ -5,6 +5,8 @@
 #include <SFML/Window/Mouse.hpp>
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 #include <Bullet.hpp>
 #include <Utility.hpp>
@@ -17,28 +19,32 @@ GameInstance::GameInstance()
 , _textures()
 , _fonts()
 {
-    //_win.setKeyRepeatEnabled(false);
+    std::srand(std::time(nullptr));
+
     _fonts.load(Fonts::Gameplay, 	 "assets/fonts/gameplay.ttf");
     
 	_textures.load(Textures::Plane,  "assets/textures/plane.png");
     _textures.load(Textures::Bullet, "assets/textures/bullet.png");
     _textures.load(Textures::Ennemy, "assets/textures/ennemy.png");
+    _textures.load(Textures::Background, "assets/textures/background.png");
 
     _player = new Player(sf::Vector2f(800.f,450.f), sf::Vector2f(0.f,1.f), _textures);
     
-    _ennemyList.push_back(new Ennemy(sf::Vector2f(0.f,200.f), sf::Vector2f(0.f,1.f), _textures));
-    _ennemyList.push_back(new Ennemy(sf::Vector2f(200.f,200.f), sf::Vector2f(0.f,1.f), _textures));
-    _ennemyList.push_back(new Ennemy(sf::Vector2f(400.f,200.f), sf::Vector2f(0.f,1.f), _textures));
-    _ennemyList.push_back(new Ennemy(sf::Vector2f(600.f,200.f), sf::Vector2f(0.f,1.f), _textures));
+    /*
+    _ennemyList.emplace_back(new Ennemy(sf::Vector2f(0.f,200.f), sf::Vector2f(0.f,1.f), _textures));
+    _ennemyList.emplace_back(new Ennemy(sf::Vector2f(200.f,200.f), sf::Vector2f(0.f,1.f), _textures));
+    _ennemyList.emplace_back(new Ennemy(sf::Vector2f(400.f,200.f), sf::Vector2f(0.f,1.f), _textures));
+    _ennemyList.emplace_back(new Ennemy(sf::Vector2f(600.f,200.f), sf::Vector2f(0.f,1.f), _textures));
+    */
+
+    _background = sf::Sprite(_textures.get(Textures::Background));
 }
 
 GameInstance::~GameInstance()
 {
-    std::cout << "cya world\n" << std::endl;
     while(!_ennemyList.empty()) delete _ennemyList.front(), _ennemyList.pop_front();
     while(!_bulletList.empty()) delete _bulletList.front(), _bulletList.pop_front();
     delete _player;
-    _win.close();
 }
 
 void GameInstance::run()
@@ -71,15 +77,14 @@ void GameInstance::manageNewEvents()
                 break;
 
             case sf::Event::MouseButtonPressed:
-                if(event.mouseButton.button == sf::Mouse::Left)
-                    //std::cout << "Left Click" << std::endl;
-                    ;
+            /*
+                if(event.mouseButton.button == sf::Mouse::Left);
                 else
                 {
-                    //std::cout << "Right Click" << std::endl;
                     _player->kill();
-                }
+                } */
                 break;
+
 
             default:
                 break;
@@ -91,13 +96,13 @@ void GameInstance::render()
 {
     _win.clear();
 
+    _win.draw(_background);
+
     for (Ennemy* e : _ennemyList) {
-        //if(e->isAlive())
             _win.draw(*e);
     }
 
     for (Bullet* b : _bulletList) {
-        //if(e->isAlive())
             _win.draw(*b);
     }
 
@@ -113,6 +118,10 @@ void GameInstance::render()
         _win.draw(text);
 
     }
+    else
+    {
+        renderHud();
+    }
 
 
     _win.display();
@@ -120,12 +129,11 @@ void GameInstance::render()
 
 void GameInstance::update(sf::Time dt)
 {
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-        _bulletList.emplace_back(new Bullet(_player->getPos()+30.f*_player->getDir(), _player->getDir(), _textures));
+    manageBullets();
+    manageEnnemies();
 
     for (std::list<Ennemy*>::iterator it=_ennemyList.begin(); it!=_ennemyList.end(); ++it)
     {
-    //for (Ennemy* e : _ennemyList) {
         Ennemy *e = *it;
         if(e->isAlive())
         {
@@ -179,4 +187,43 @@ void GameInstance::update(sf::Time dt)
 
     _player->goTo((sf::Vector2f) sf::Mouse::getPosition(_win));
     _player->update(_frameduration);
+}
+
+
+
+void GameInstance::manageBullets()
+{
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && _player->allowedToFire())
+        _bulletList.emplace_back(new Bullet(_player->getPos()+30.f*_player->getDir(), _player->getDir(), _textures));
+
+    for (std::list<Ennemy*>::iterator it=_ennemyList.begin(); it!=_ennemyList.end(); ++it)
+    {
+        Ennemy *e = *it;
+        if(e->isAlive())
+        {
+            _bulletList.emplace_back(new Bullet(e->getPos()+30.f*e->getDir(), e->getDir(), _textures));
+        }
+
+    }
+}
+
+void GameInstance::manageEnnemies()
+{
+    if(_ennemyList.size()<4)
+    {
+        int azimuth = std::rand()%360;
+        sf::Vector2f newPos(800.f*unitVector(azimuth)+sf::Vector2f(800.f,450.f));
+        sf::Vector2f newDir = dirTo(newPos,_player->getPos());
+        _ennemyList.emplace_back(new Ennemy(newPos, newDir, _textures));
+    }
+}
+
+void GameInstance::renderHud()
+{
+    sf::Text text;
+    text.setFont(_fonts.get(Fonts::Gameplay));
+    text.setString("HP: " + std::to_string((_player->getHealth())));
+    text.setCharacterSize(40);
+    text.setFillColor(sf::Color::Red);
+    _win.draw(text);
 }

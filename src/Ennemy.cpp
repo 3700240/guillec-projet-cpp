@@ -48,3 +48,8 @@ void Ennemy::update(sf::Time dt)
     float angle = std::atan2(_dir.y, _dir.x);
     _sprite.setRotation(toDegree(angle) + 90.f);
 }
+
+bool Ennemy::allowedToFire()
+{
+    return true;
+}

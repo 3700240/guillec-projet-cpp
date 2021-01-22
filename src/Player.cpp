@@ -9,7 +9,6 @@
 
 #include <iostream>
 
-//#include <SFML/Window/Mouse.hpp>
 
 Player::Player(sf::Vector2f pos, sf::Vector2f dir, const TextureManager& textures)
 : Character(pos, dir, 100, 32.f, 100.f)
@@ -27,9 +26,6 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Player::goTo(sf::Vector2f targetPos)
 {
-    //if(targetPos-_pos != sf::Vector2f(0.f,0.f))
-        //_dir = normalized(targetPos-_pos);
-
     sf::Vector2f relTargetPos = targetPos-_pos;
 
     float dot = _dir.x*relTargetPos.x + _dir.y*relTargetPos.y;
@@ -41,8 +37,6 @@ void Player::goTo(sf::Vector2f targetPos)
     float rot = (angle>0) ? std::min(angle, anglemax) : std::max(angle, -anglemax); 
 
     _dir = sf::Vector2f(std::cos(toRadian(rot))*_dir.x-std::sin(toRadian(rot))*_dir.y, std::sin(toRadian(rot))*_dir.x+std::cos(toRadian(rot))*_dir.y);
-
-    //std::cout << _speed << std::endl;
     _speed = std::max(std::min(2*magnitude(relTargetPos),400.f) ,100.f);
 }
 
@@ -52,4 +46,10 @@ void Player::update(sf::Time dt)
     _sprite.setPosition(_pos);
     float angle = std::atan2(_dir.y, _dir.x);
     _sprite.setRotation(toDegree(angle) + 90.f);
+}
+
+
+bool Player::allowedToFire()
+{
+    return true;
 }

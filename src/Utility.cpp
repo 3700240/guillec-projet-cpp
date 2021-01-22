@@ -33,3 +33,9 @@ float distance(sf::Vector2f v1, sf::Vector2f v2)
 {
 	return magnitude(v1-v2);
 }
+
+sf::Vector2f dirTo(sf::Vector2f from, sf::Vector2f to)
+{
+	sf::Vector2f relTargetPos = to-from;
+	return normalized(relTargetPos);
+}

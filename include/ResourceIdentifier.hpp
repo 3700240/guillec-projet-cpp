@@ -13,7 +13,9 @@ namespace Textures
 	{
         Plane,
         Bullet,
-		Ennemy
+		Ennemy,
+		Background
+
 	};
 }
 
