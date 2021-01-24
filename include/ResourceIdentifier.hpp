@@ -5,6 +5,7 @@ namespace sf
 {
 	class Texture;
 	class Font;
+	class SoundBuffer;
 }
 
 namespace Textures
@@ -27,10 +28,20 @@ namespace Fonts
 	};
 }
 
+namespace Sounds
+{
+	enum ID
+	{
+		Music,
+		Fire
+	};
+}
+
 template <typename Resource, typename Identifier>
 class ResourceManager;
 
 typedef ResourceManager<sf::Texture, Textures::ID> TextureManager;
 typedef ResourceManager<sf::Font, Fonts::ID> FontManager;
+typedef ResourceManager<sf::SoundBuffer, Sounds::ID> SoundManager;
 
 #endif // __RESOURCEIDENTIFIER_HPP__

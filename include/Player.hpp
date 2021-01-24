@@ -13,6 +13,7 @@ class Player : public Character
     private:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         sf::Sprite _sprite;
+        int _cooldown;
 };
 
 #endif // __PLAYER_HPP__

@@ -22,19 +22,12 @@ void Ennemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Ennemy::goTo(sf::Vector2f targetPos)
 {
-    /*
-    if(targetPos-_pos != sf::Vector2f(0.f,0.f))
-        _dir = normalized(targetPos-_pos);
-        */
-
     sf::Vector2f relTargetPos = targetPos-_pos;
 
     float dot = _dir.x*relTargetPos.x + _dir.y*relTargetPos.y;
     float det = _dir.x*relTargetPos.y - _dir.y*relTargetPos.x;
 
-
     float angle = toDegree(std::atan2(det, dot));
-
     float rot = (angle>0) ? std::min(angle, 0.5f) : std::max(angle, -0.5f); 
 
     _dir = sf::Vector2f(std::cos(toRadian(rot))*_dir.x-std::sin(toRadian(rot))*_dir.y, std::sin(toRadian(rot))*_dir.x+std::cos(toRadian(rot))*_dir.y);
@@ -51,5 +44,7 @@ void Ennemy::update(sf::Time dt)
 
 bool Ennemy::allowedToFire()
 {
-    return true;
+    if(isVisible() && std::rand()%100==0)
+        return true;
+    return false;
 }

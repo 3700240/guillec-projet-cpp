@@ -16,4 +16,4 @@ class Ennemy : public Character
 
 };
 
-#endif // __BULLET_HPP__
+#endif // __ENNEMY_HPP__

@@ -9,13 +9,17 @@ class Character : public Entity
         Character(sf::Vector2f pos, sf::Vector2f dir, int health, float r, float s);
         virtual ~Character()=0;
 
-        virtual bool allowedToFire()=0;
 
+    public:
+        virtual bool allowedToFire()=0;
         int getHealth() const {return _health;}
         void takeDamage(int damage);
+
+    protected:
+    	bool isVisible() const;
+
     private:
         int _health;
-        int _lastShot;
 };
 
-#endif // __BULLET_HPP__
+#endif // __CHARACTER_HPP__

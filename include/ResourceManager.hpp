@@ -24,9 +24,10 @@ void ResourceManager<Resource, Identifier>::load(Identifier id, const std::strin
 {
 	std::unique_ptr<Resource> resource(new Resource());
 	if (!resource->loadFromFile(filename))
-		throw std::runtime_error("ResourceManager::load - Failed to load " + filename);
+		throw std::runtime_error("ResourceManager::load - Error while loading " + filename);
 	insertResource(id, std::move(resource));
 }
+
 
 template <typename Resource, typename Identifier>
 Resource& ResourceManager<Resource, Identifier>::get(Identifier id)
@@ -36,6 +37,7 @@ Resource& ResourceManager<Resource, Identifier>::get(Identifier id)
 	return *found->second;
 }
 
+
 template <typename Resource, typename Identifier>
 const Resource& ResourceManager<Resource, Identifier>::get(Identifier id) const
 {
@@ -43,6 +45,7 @@ const Resource& ResourceManager<Resource, Identifier>::get(Identifier id) const
 	assert(found != _resourceMap.end());
 	return *found->second;
 }
+
 
 template <typename Resource, typename Identifier>
 void ResourceManager<Resource, Identifier>::insertResource(Identifier id, std::unique_ptr<Resource> resource) 

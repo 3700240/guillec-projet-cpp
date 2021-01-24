@@ -10,11 +10,15 @@ class Projectile : public Entity
         Projectile(sf::Vector2f pos, sf::Vector2f dir, int damage, float r, float s);
         virtual ~Projectile()=0;
 
+    public:
         void inflictDamage(Character *c);
-
         int getDamage() const {return _damage;}
+
+    protected:
+        
+
     protected:
         int _damage;
 };
 
-#endif // __BULLET_HPP__
+#endif // __PROJECTILE_HPP__

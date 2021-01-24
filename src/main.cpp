@@ -2,11 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
-
 #include <vector>
-
-#include <SFML/System/Vector2.hpp>
-
 
 int main(void)
 {

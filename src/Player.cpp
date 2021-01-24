@@ -13,6 +13,7 @@
 Player::Player(sf::Vector2f pos, sf::Vector2f dir, const TextureManager& textures)
 : Character(pos, dir, 100, 32.f, 100.f)
 , _sprite(textures.get(Textures::Plane))
+, _cooldown(0)
 {
     sf::FloatRect bounds = _sprite.getLocalBounds();
     _sprite.setOrigin(std::floor(bounds.left + bounds.width / 2.f), std::floor(bounds.top + bounds.height / 2.f));
@@ -42,6 +43,8 @@ void Player::goTo(sf::Vector2f targetPos)
 
 void Player::update(sf::Time dt)
 {
+    if(_cooldown>0)
+        --_cooldown;
     _pos += _dir*_speed*dt.asSeconds();
     _sprite.setPosition(_pos);
     float angle = std::atan2(_dir.y, _dir.x);
@@ -51,5 +54,10 @@ void Player::update(sf::Time dt)
 
 bool Player::allowedToFire()
 {
-    return true;
+    if(_cooldown==0)
+    {
+        _cooldown = 10;
+        return true;
+    }
+    return false;
 }

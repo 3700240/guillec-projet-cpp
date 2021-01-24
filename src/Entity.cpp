@@ -11,14 +11,8 @@ Entity::Entity(sf::Vector2f pos, sf::Vector2f dir, float r, float s)
 }
 
 Entity::~Entity()
-{
-	
-}
+{}
 
-void Entity::update(sf::Time dt)
-{
-    
-}
 
 void Entity::kill()
 {

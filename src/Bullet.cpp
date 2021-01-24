@@ -19,9 +19,7 @@ Bullet::Bullet(sf::Vector2f pos, sf::Vector2f dir,  const TextureManager& textur
 }
 
 Bullet::~Bullet()
-{
-	//std::cout << "depassement" << std::endl;
-}
+{}
 
 void Bullet::update(sf::Time dt)
 {

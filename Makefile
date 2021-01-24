@@ -10,7 +10,7 @@ CC := g++
 CPPFLAGS := -Iinclude/
 CFLAGS   := -Wall -Werror -g
 LDFLAGS  :=
-LDLIBS   := -lsfml-graphics -lsfml-window -lsfml-system
+LDLIBS   := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 .PHONY: all clean
 
