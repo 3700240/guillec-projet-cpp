@@ -1,4 +1,4 @@
 # guillec-projet-cpp
-Rendu du projet de C++
+Space Invaders v2
 
 <img src="diagramme.svg" /> 
