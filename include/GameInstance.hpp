@@ -51,6 +51,7 @@ class GameInstance
 
         sf::Sprite _background;
         sf::Sound  _sound;
+        sf::Music  _music;
         int _score;
 
         static const sf::Time _frameduration;

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{template} \PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{Resource}\PYG{p}{,} \PYG{k}{typename} \PYG{n}{Identifier}\PYG{o}{\PYGZgt{}}
+\PYG{k}{class} \PYG{n+nc}{ResourceManager}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{public}\PYG{o}{:}
+        \PYG{k+kt}{void} \PYG{n}{load}\PYG{p}{(}\PYG{n}{Identifier} \PYG{n}{id}\PYG{p}{,} \PYG{k}{const} \PYG{n}{std}\PYG{o}{::}\PYG{n}{string}\PYG{o}{\PYGZam{}} \PYG{n}{filename}\PYG{p}{);}
+        \PYG{n}{Resource}\PYG{o}{\PYGZam{}} \PYG{n}{get}\PYG{p}{(}\PYG{n}{Identifier} \PYG{n}{id}\PYG{p}{);}
+        \PYG{k}{const} \PYG{n}{Resource}\PYG{o}{\PYGZam{}} \PYG{n}{get}\PYG{p}{(}\PYG{n}{Identifier} \PYG{n}{id}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+    \PYG{k}{private}\PYG{o}{:}
+        \PYG{k+kt}{void} \PYG{n}{insertResource}\PYG{p}{(}\PYG{n}{Identifier} \PYG{n}{id}\PYG{p}{,} \PYG{n}{std}\PYG{o}{::}\PYG{n}{unique\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{n}{Resource}\PYG{o}{\PYGZgt{}} \PYG{n}{resource}\PYG{p}{);}
+    \PYG{k}{private}\PYG{o}{:}
+        \PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{Identifier}\PYG{p}{,} \PYG{n}{std}\PYG{o}{::}\PYG{n}{unique\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{n}{Resource}\PYG{o}{\PYGZgt{}\PYGZgt{}}	\PYG{n}{\PYGZus{}resourceMap}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

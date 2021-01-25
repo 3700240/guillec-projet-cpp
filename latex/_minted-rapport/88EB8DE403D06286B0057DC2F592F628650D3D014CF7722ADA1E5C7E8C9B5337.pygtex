@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// exemple}
+\PYG{n}{Entity} \PYG{n}{foo}\PYG{p}{;}
+\PYG{p}{...}
+\PYG{n}{\PYGZus{}win}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+\PYG{n}{\PYGZus{}win}\PYG{p}{.}\PYG{n}{draw}\PYG{p}{(}\PYG{n}{foo}\PYG{p}{);}
+\PYG{n}{\PYGZus{}win}\PYG{p}{.}\PYG{n}{display}\PYG{p}{();}
+\end{Verbatim}

@@ -16,7 +16,7 @@
 const sf::Time GameInstance::_frameduration = sf::seconds(1.f/60.f);
 
 GameInstance::GameInstance()
-: _win(sf::VideoMode(1600, 900), "My game", sf::Style::Close)
+: _win(sf::VideoMode(1600, 900), "Space Invader v2", sf::Style::Close)
 , _textures()
 , _fonts()
 , _score(0)
@@ -35,6 +35,13 @@ GameInstance::GameInstance()
     _player = new Player(sf::Vector2f(800.f,450.f), sf::Vector2f(0.f,1.f), _textures);
     
     _background = sf::Sprite(_textures.get(Textures::Background));
+
+    if (!_music.openFromFile("assets/sound/theme.ogg"))
+        throw std::runtime_error("Failed to load assets/sound/theme.ogg");
+    _music.play();
+    _music.setVolume(255);
+    _music.setLoop(true);
+
 }
 
 GameInstance::~GameInstance()
@@ -46,14 +53,6 @@ GameInstance::~GameInstance()
 
 void GameInstance::run()
 {
-
-    sf::Music music;
-    if (!music.openFromFile("assets/sound/theme.ogg"))
-        throw std::runtime_error("Failed to load assets/sound/theme.ogg");
-    music.play();
-    music.setVolume(255);
-    music.setLoop(true); 
-
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while(_win.isOpen())
@@ -257,7 +256,7 @@ void GameInstance::renderEndScreen()
     text.setCharacterSize(80);
     text.setFillColor(sf::Color::Red);
     sf::FloatRect textRect = text.getLocalBounds();
-    text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f - 50.f);
+    text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
     text.setPosition(sf::Vector2f(800.f,450.f));
     _win.draw(text);
 }

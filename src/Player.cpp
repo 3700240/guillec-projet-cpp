@@ -32,7 +32,6 @@ void Player::goTo(sf::Vector2f targetPos)
     float dot = _dir.x*relTargetPos.x + _dir.y*relTargetPos.y;
     float det = _dir.x*relTargetPos.y - _dir.y*relTargetPos.x;
 
-
     float angle = toDegree(std::atan2(det, dot));
     float anglemax = 4.f + (400.f-_speed)/300.f*3.f;
     float rot = (angle>0) ? std::min(angle, anglemax) : std::max(angle, -anglemax); 
