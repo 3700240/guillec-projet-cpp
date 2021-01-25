@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.3)  25 JAN 2021 12:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.12.3)  25 JAN 2021 12:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -411,10 +411,10 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 (./_minted-rapport/default-pyg-prefix.pygstyle)
 (./_minted-rapport/default.pygstyle)
 (./_minted-rapport/8F033BCF4C020FA1125F2F9DFFF49343650D3D014CF7722ADA1E5C7E8C9B
-5337.pygtex
+5337.pygtex [1]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
- [1])
+)
 \openout3 = `rapport.pyg'.
 
 
@@ -429,12 +429,12 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 
 
 (./_minted-rapport/44D1935B736E25AAA8A744FAC83E3FC6650D3D014CF7722ADA1E5C7E8C9B
-5337.pygtex) [2]
+5337.pygtex)
 \openout3 = `rapport.pyg'.
 
 
 (./_minted-rapport/353BF629B62249F94C0AE4324DB7E25A650D3D014CF7722ADA1E5C7E8C9B
-5337.pygtex)
+5337.pygtex [2])
 \openout3 = `rapport.pyg'.
 
 
@@ -475,7 +475,7 @@ onts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf/fonts/type1/public/cm
 </usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fo
 nts/type1/public/cm-super/sfsx2074.pfb></usr/share/texmf/fonts/type1/public/cm-
 super/sftt1000.pfb>
-Output written on rapport.pdf (6 pages, 3341648 bytes).
+Output written on rapport.pdf (6 pages, 3342115 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
