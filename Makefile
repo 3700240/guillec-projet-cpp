@@ -26,5 +26,5 @@ $(OBJ_DIR):
 	mkdir -p $@
 
 clean:
-	rm -rv $(BIN_DIR) $(OBJ_DIR)
+	rm -rv $(OBJ_DIR)
 	rm $(EXE)
