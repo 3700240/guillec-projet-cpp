@@ -1,4 +1,5 @@
-# guillec-projet-cpp
+# Projet final de C++
+
 Space Invaders v2
 
 ## Rapport
