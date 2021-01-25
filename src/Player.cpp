@@ -27,33 +27,33 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Player::goTo(sf::Vector2f targetPos)
 {
-    sf::Vector2f relTargetPos = targetPos-_pos;
+    sf::Vector2f relTargetPos = targetPos-_pos; // pos relative entre lui et la souris
 
-    float dot = _dir.x*relTargetPos.x + _dir.y*relTargetPos.y;
-    float det = _dir.x*relTargetPos.y - _dir.y*relTargetPos.x;
+    float dot = _dir.x*relTargetPos.x + _dir.y*relTargetPos.y; // trigo magique
+    float det = _dir.x*relTargetPos.y - _dir.y*relTargetPos.x; // trigo magique
 
     float angle = toDegree(std::atan2(det, dot));
     float anglemax = 4.f + (400.f-_speed)/300.f*3.f;
-    float rot = (angle>0) ? std::min(angle, anglemax) : std::max(angle, -anglemax); 
+    float rot = (angle>0) ? std::min(angle, anglemax) : std::max(angle, -anglemax); // Le joueur ne peut pas tourner aussi vite qu'il veut
 
     _dir = sf::Vector2f(std::cos(toRadian(rot))*_dir.x-std::sin(toRadian(rot))*_dir.y, std::sin(toRadian(rot))*_dir.x+std::cos(toRadian(rot))*_dir.y);
-    _speed = std::max(std::min(2*magnitude(relTargetPos),400.f) ,100.f);
+    _speed = std::max(std::min(2*magnitude(relTargetPos),400.f) ,100.f); // la vitesse dépend de la distance entre la souris et le joueur (plus la distande est grande plus vitesse grande)
 }
 
 void Player::update(sf::Time dt)
 {
-    if(_cooldown>0)
-        --_cooldown;
-    _pos += _dir*_speed*dt.asSeconds();
-    _sprite.setPosition(_pos);
-    float angle = std::atan2(_dir.y, _dir.x);
-    _sprite.setRotation(toDegree(angle) + 90.f);
+    if(_cooldown>0) // Si cooldown non nul
+        --_cooldown; // On le réduit
+    _pos += _dir*_speed*dt.asSeconds(); // Méthode des rectangles
+    _sprite.setPosition(_pos);          // On bouge le sprite
+    float angle = std::atan2(_dir.y, _dir.x);  
+    _sprite.setRotation(toDegree(angle) + 90.f); // On tourne le sprite dans la bonne direction
 }
 
 
 bool Player::allowedToFire()
 {
-    if(_cooldown==0)
+    if(_cooldown==0) // Si cooldown nul alors il peut tirer
     {
         _cooldown = 10;
         return true;

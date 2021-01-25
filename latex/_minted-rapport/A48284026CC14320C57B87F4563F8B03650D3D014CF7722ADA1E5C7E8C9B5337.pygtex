@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{o}{:}
+    \PYG{n}{sf}\PYG{o}{::}\PYG{n}{RenderWindow} \PYG{n}{\PYGZus{}win}\PYG{p}{;}
+
+    \PYG{n}{TextureManager} \PYG{n}{\PYGZus{}textures}\PYG{p}{;}
+    \PYG{n}{FontManager} \PYG{n}{\PYGZus{}fonts}\PYG{p}{;}
+    \PYG{n}{SoundManager} \PYG{n}{\PYGZus{}sounds}\PYG{p}{;}
+
+    \PYG{n}{Player}\PYG{o}{*} \PYG{n}{\PYGZus{}player}\PYG{p}{;}
+    \PYG{n}{std}\PYG{o}{::}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{Ennemy} \PYG{o}{*\PYGZgt{}} \PYG{n}{\PYGZus{}ennemyList}\PYG{p}{;}
+    \PYG{n}{std}\PYG{o}{::}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{Bullet} \PYG{o}{*\PYGZgt{}} \PYG{n}{\PYGZus{}bulletList}\PYG{p}{;}
+
+    \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Sprite} \PYG{n}{\PYGZus{}background}\PYG{p}{;}
+    \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Sound}  \PYG{n}{\PYGZus{}sound}\PYG{p}{;}
+    \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Music}  \PYG{n}{\PYGZus{}music}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{\PYGZus{}score}\PYG{p}{;}
+
+    \PYG{k}{static} \PYG{k}{const} \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Time} \PYG{n}{\PYGZus{}frameduration}\PYG{p}{;}
+\end{Verbatim}

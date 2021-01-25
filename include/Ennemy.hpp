@@ -11,8 +11,8 @@ class Ennemy : public Character
         void goTo(sf::Vector2f targetPos);
         bool allowedToFire();
     private:
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-        sf::Sprite _sprite;
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; // Nécessaire par héritage de sf::drawable
+        sf::Sprite _sprite;                // La texture de l'ennemi
 
 };
 

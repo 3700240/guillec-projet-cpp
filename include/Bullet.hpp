@@ -10,12 +10,11 @@ class Bullet : public Projectile
         ~Bullet();
     public:
         virtual void update(sf::Time dt);
-
     private:
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; // Nécessaire par héritage de sf::drawable
     
     private:
-        sf::Sprite _sprite;
+        sf::Sprite _sprite;                   // La texture de la balle
 
 };
 

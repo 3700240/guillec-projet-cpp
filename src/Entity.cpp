@@ -16,5 +16,11 @@ Entity::~Entity()
 
 void Entity::kill()
 {
-	_isAlive = false;
+	_isAlive = false; // setter
+}
+
+std::ostream& operator<<(std::ostream& os, const Entity& e) // Parcequ'il faut bien être sujet compliant
+{
+    os << '(' << e._pos.x << ',' << e._pos.y << ')';
+    return os;
 }

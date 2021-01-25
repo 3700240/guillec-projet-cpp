@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{virtual} \PYG{k+kt}{bool} \PYG{n+nf}{allowedToFire}\PYG{p}{()}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
-\end{Verbatim}

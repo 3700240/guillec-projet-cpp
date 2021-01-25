@@ -4,14 +4,14 @@
 #include <stdexcept>
 #include <vector>
 
-int main(void)
+int main(void) // Point d'entrée du programme
 {
     try
 	{
 		GameInstance game;
-		game.run();
+		game.run();           // style minimaliste
 	}
-	catch (std::exception& e)
+	catch (std::exception& e) // pq pas ?
 	{
 		std::cout << "\nEXCEPTION: " << e.what() << std::endl;
 	}

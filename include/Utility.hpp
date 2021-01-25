@@ -3,16 +3,18 @@
 
 #include <SFML/System/Vector2.hpp>
 
-float toDegree(float radian);
-float toRadian(float degree);
+// Quelques outils pour manipuler les sf::vector2f, faire de la trigo
 
-float magnitude(sf::Vector2f vector);
+float toDegree(float radian); // Explicite
+float toRadian(float degree); // Explicite
 
-sf::Vector2f normalized(sf::Vector2f vector);
-sf::Vector2f unitVector(float angle);
+float magnitude(sf::Vector2f vector);  // Norme d'un vecteur
 
-float distance(sf::Vector2f v1, sf::Vector2f v2);
+sf::Vector2f normalized(sf::Vector2f vector); // Retourne un vecteur unitaire d'un veteur donné
+sf::Vector2f unitVector(float angle);         // Retourne un vecteur unitaire d'un angle donné
 
-sf::Vector2f dirTo(sf::Vector2f from, sf::Vector2f to);
+float distance(sf::Vector2f v1, sf::Vector2f v2); // Distance entrre deux points
+
+sf::Vector2f dirTo(sf::Vector2f from, sf::Vector2f to); // Vecteur direction entre deux points
 
 #endif // __UTILITY_HPP__

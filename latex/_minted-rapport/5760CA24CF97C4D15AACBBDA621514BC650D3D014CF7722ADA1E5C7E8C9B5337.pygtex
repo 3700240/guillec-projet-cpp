@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{\PYGZus{}sprite}\PYG{p}{(}\PYG{n}{textures}\PYG{p}{.}\PYG{n}{get}\PYG{p}{(}\PYG{n}{Textures}\PYG{o}{::}\PYG{n}{Ennemy}\PYG{p}{))}
-\end{Verbatim}

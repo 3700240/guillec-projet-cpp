@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{GameInstance}\PYG{o}{::}\PYG{n}{updateEnnemies}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+  \PYG{c+c1}{// Pour chaque ennemi}
+  \PYG{k}{for} \PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{list}\PYG{o}{\PYGZlt{}}\PYG{n}{Ennemy}\PYG{o}{*\PYGZgt{}::}\PYG{n}{iterator} \PYG{n}{it}\PYG{o}{=}\PYG{n}{\PYGZus{}ennemyList}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{it}\PYG{o}{!=}\PYG{n}{\PYGZus{}ennemyList}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++}\PYG{n}{it}\PYG{p}{)}
+  \PYG{p}{\PYGZob{}}
+     \PYG{n}{Ennemy} \PYG{o}{*}\PYG{n}{e} \PYG{o}{=} \PYG{o}{*}\PYG{n}{it}\PYG{p}{;}
+     \PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{isAlive}\PYG{p}{())}
+     \PYG{p}{\PYGZob{}}
+        \PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{goTo}\PYG{p}{(}\PYG{n}{\PYGZus{}player}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getPos}\PYG{p}{());} \PYG{c+c1}{// On change la direction de l\PYGZsq{}ennemi}
+        \PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{update}\PYG{p}{(}\PYG{n}{\PYGZus{}frameduration}\PYG{p}{);}  \PYG{c+c1}{// On met à jour sa position}
+
+        \PYG{c+c1}{// Gestion des collisions}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{distance}\PYG{p}{(}\PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getPos}\PYG{p}{(),} \PYG{n}{\PYGZus{}player}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getPos}\PYG{p}{())} \PYG{o}{\PYGZlt{}} \PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getRadius}\PYG{p}{()}\PYG{o}{+}\PYG{n}{\PYGZus{}player}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getRadius}\PYG{p}{())}
+        \PYG{p}{\PYGZob{}}
+            \PYG{n}{\PYGZus{}player}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{takeDamage}\PYG{p}{(}\PYG{l+m+mi}{40}\PYG{p}{);} \PYG{c+c1}{// Le joueur prend des dégâts}
+            \PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{kill}\PYG{p}{();} \PYG{c+c1}{// L\PYGZsq{}ennemi meurt}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{else} \PYG{c+c1}{// Garbage collector}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n}{\PYGZus{}score}\PYG{o}{++}\PYG{p}{;}
+        \PYG{k}{delete}\PYG{p}{(}\PYG{n}{e}\PYG{p}{);}
+        \PYG{n}{it} \PYG{o}{=} \PYG{n}{\PYGZus{}ennemyList}\PYG{p}{.}\PYG{n}{erase}\PYG{p}{(}\PYG{n}{it}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

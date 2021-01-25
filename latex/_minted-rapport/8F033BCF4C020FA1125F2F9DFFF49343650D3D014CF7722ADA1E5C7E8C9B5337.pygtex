@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{class} \PYG{n+nc}{Entity} \PYG{o}{:} \PYG{k}{public} \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Drawable}\PYG{p}{,} \PYG{n}{sf}\PYG{o}{::}\PYG{n}{Transformable}
-\end{Verbatim}

@@ -8,7 +8,7 @@ Projectile::Projectile(sf::Vector2f pos, sf::Vector2f dir, int damage, float r, 
 Projectile::~Projectile()
 {}
 
-void Projectile::inflictDamage(Character *c)
+void Projectile::inflictDamage(Character *c) // pas grand chose à dire
 {
 	c->takeDamage(_damage);
 	_isAlive=false;

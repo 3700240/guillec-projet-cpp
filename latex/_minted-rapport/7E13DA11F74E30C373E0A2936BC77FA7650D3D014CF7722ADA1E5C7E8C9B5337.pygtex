@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{typedef} \PYG{n}{ResourceManager}\PYG{o}{\PYGZlt{}}\PYG{n}{sf}\PYG{o}{::}\PYG{n}{Texture}\PYG{p}{,} \PYG{n}{Textures}\PYG{o}{::}\PYG{n}{ID}\PYG{o}{\PYGZgt{}} \PYG{n}{TextureManager}\PYG{p}{;}
-\PYG{k}{typedef} \PYG{n}{ResourceManager}\PYG{o}{\PYGZlt{}}\PYG{n}{sf}\PYG{o}{::}\PYG{n}{Font}\PYG{p}{,} \PYG{n}{Fonts}\PYG{o}{::}\PYG{n}{ID}\PYG{o}{\PYGZgt{}} \PYG{n}{FontManager}\PYG{p}{;}
-\PYG{k}{typedef} \PYG{n}{ResourceManager}\PYG{o}{\PYGZlt{}}\PYG{n}{sf}\PYG{o}{::}\PYG{n}{SoundBuffer}\PYG{p}{,} \PYG{n}{Sounds}\PYG{o}{::}\PYG{n}{ID}\PYG{o}{\PYGZgt{}} \PYG{n}{SoundManager}\PYG{p}{;}
-\end{Verbatim}
